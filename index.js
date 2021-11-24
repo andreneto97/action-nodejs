@@ -22,20 +22,20 @@ try {
       issue_number: pr.number,
       body: "Some Message",
     });
-    core.debug(`created comment URL: ${response.data.html_url}`);
+    console.log(`created comment URL: ${response.data.html_url}`);
   };
   createComment();
 
   exec("ls -la", (error, stdout, stderr) => {
     if (error) {
-      core.debug(`error: ${error.message}`);
+      console.log(`error: ${error.message}`);
       return;
     }
     if (stderr) {
-      core.debug(`stderr: ${stderr}`);
+      console.log(`stderr: ${stderr}`);
       return;
     }
-    core.debug(`stdout: ${stdout}`);
+    console.log(`stdout: ${stdout}`);
   });
 
   // `who-to-greet` input defined in action metadata file
@@ -44,8 +44,6 @@ try {
   const time = new Date().toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
