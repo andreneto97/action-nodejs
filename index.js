@@ -7,7 +7,7 @@ try {
   const token = core.getInput("repo-token");
 
   // Create a GitHub client.
-  const client = new github.GitHub(token);
+  const client = github.getOctokit(myToken);
 
   // Get owner and repo from context
   const owner = github.context.repo.owner;
