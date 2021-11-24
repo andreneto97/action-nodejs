@@ -1,3 +1,3 @@
-import { run } from "./run";
+const run = require("./run");
 
 run();
