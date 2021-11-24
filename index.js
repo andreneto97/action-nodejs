@@ -19,7 +19,7 @@ try {
       repo,
       // eslint-disable-next-line @typescript-eslint/camelcase
       issue_number: pr.number,
-      body: message,
+      body: "Some Message",
     });
     core.debug(`created comment URL: ${response.data.html_url}`);
   };

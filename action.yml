@@ -1,9 +1,9 @@
 name: "Action NodeJS"
-description: "Action to comment"
+description: "Comment"
 inputs:
   repo-token:
     description: "GITHUB_TOKEN secret"
     required: true
 runs:
   using: "node12"
-  main: "src/main.js"
+  main: "index.js"
