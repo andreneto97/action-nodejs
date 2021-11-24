@@ -1,3 +1,4 @@
+const { exec } = require("child_process");
 const core = require("@actions/core");
 const github = require("@actions/github");
 
@@ -24,6 +25,18 @@ try {
     core.debug(`created comment URL: ${response.data.html_url}`);
   };
   createComment();
+
+  exec("ls -la", (error, stdout, stderr) => {
+    if (error) {
+      core.debug(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      core.debug(`stderr: ${stderr}`);
+      return;
+    }
+    core.debug(`stdout: ${stdout}`);
+  });
 
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput("who-to-greet");
