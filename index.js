@@ -14,7 +14,7 @@ try {
   const repo = github.context.repo.repo;
 
   const createComment = async () => {
-    const response = await client.issues.createComment({
+    const response = await client.rest.issues.createComment({
       owner,
       repo,
       // eslint-disable-next-line @typescript-eslint/camelcase
