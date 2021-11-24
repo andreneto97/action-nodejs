@@ -18,7 +18,6 @@ try {
     const response = await client.rest.issues.createComment({
       owner,
       repo,
-      // eslint-disable-next-line @typescript-eslint/camelcase
       issue_number: pr.number,
       body: "Some Message",
     });
@@ -26,6 +25,7 @@ try {
   };
   createComment();
 
+  // Show the files inside the folder
   exec("ls -la", (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
@@ -38,6 +38,7 @@ try {
     console.log(`stdout1: ${stdout}`);
   });
 
+  // Create .tar file
   exec("touch workspace.tar.gz", (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
@@ -50,6 +51,7 @@ try {
     console.log(`stdout2: ${stdout}`);
   });
 
+  // Tar the entire file
   exec(
     "tar -czf workspace.tar.gz --exclude=workspace.tar.gz .",
     (error, stdout, stderr) => {
@@ -62,6 +64,7 @@ try {
         return;
       }
 
+      // Show the files inside the folder
       console.log(`stdout3: ${stdout}`);
       exec("ls -la", (error, stdout, stderr) => {
         if (error) {
@@ -76,13 +79,6 @@ try {
       });
     }
   );
-
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput("who-to-greet");
-  console.log(`Hello ${nameToGreet}!`);
-  const time = new Date().toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
 } catch (error) {
   core.setFailed(error.message);
 }

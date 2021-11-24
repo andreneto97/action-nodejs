@@ -1,5 +1,5 @@
-name: "Action NodeJS"
-description: "Comment"
+name: "Garnet Labs"
+description: "Check vulnerabilities inside the dependencies"
 inputs:
   repo-token:
     description: "GITHUB_TOKEN secret"
