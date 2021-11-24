@@ -61,21 +61,21 @@ try {
         console.log(`stderr: ${stderr}`);
         return;
       }
+
       console.log(`stdout3: ${stdout}`);
+      exec("ls -la", (error, stdout, stderr) => {
+        if (error) {
+          console.log(`error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.log(`stderr: ${stderr}`);
+          return;
+        }
+        console.log(`stdout4: ${stdout}`);
+      });
     }
   );
-
-  exec("ls -la", (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(`stdout4: ${stdout}`);
-  });
 
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput("who-to-greet");
