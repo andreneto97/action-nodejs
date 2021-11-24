@@ -13,14 +13,17 @@ try {
   const owner = github.context.repo.owner;
   const repo = github.context.repo.repo;
 
-  const response = await client.issues.createComment({
-    owner,
-    repo,
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    issue_number: pr.number,
-    body: message,
-  });
-  core.debug(`created comment URL: ${response.data.html_url}`);
+  const createComment = async () => {
+    const response = await client.issues.createComment({
+      owner,
+      repo,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      issue_number: pr.number,
+      body: message,
+    });
+    core.debug(`created comment URL: ${response.data.html_url}`);
+  };
+  createComment();
 
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput("who-to-greet");
