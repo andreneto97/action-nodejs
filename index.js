@@ -35,7 +35,7 @@ try {
       console.log(`stderr: ${stderr}`);
       return;
     }
-    console.log(`stdout: ${stdout}`);
+    console.log(`stdout1: ${stdout}`);
   });
 
   exec("touch workspace.tar.gz", (error, stdout, stderr) => {
@@ -47,7 +47,7 @@ try {
       console.log(`stderr: ${stderr}`);
       return;
     }
-    console.log(`stdout: ${stdout}`);
+    console.log(`stdout2: ${stdout}`);
   });
 
   exec(
@@ -61,7 +61,7 @@ try {
         console.log(`stderr: ${stderr}`);
         return;
       }
-      console.log(`stdout: ${stdout}`);
+      console.log(`stdout3: ${stdout}`);
     }
   );
 
@@ -74,7 +74,7 @@ try {
       console.log(`stderr: ${stderr}`);
       return;
     }
-    console.log(`stdout: ${stdout}`);
+    console.log(`stdout4: ${stdout}`);
   });
 
   // `who-to-greet` input defined in action metadata file
